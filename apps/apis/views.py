@@ -66,4 +66,7 @@ class ListImage(generics.ListAPIView):
     renderer_classes = [JSONRenderer]
 
     def get_queryset(self):
-        return Image.objects.all().filter(id=pick_random_object())
+        try:
+            return Image.objects.all().filter(id=pick_random_object())
+        except:
+            return Image.objects.all()

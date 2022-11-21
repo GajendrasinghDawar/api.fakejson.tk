@@ -28,6 +28,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+MIDDLEWARE += ["csp.middleware.CSPMiddleware"]
+CSP_DEFAULT_SRC = ("'self'",)
 
 ROOT_URLCONF = 'fakejson.urls'
 
@@ -48,15 +50,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'fakejson.wsgi.application'
-
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -81,11 +74,13 @@ USE_I18N = True
 
 USE_TZ = True
 
-MEDIA_ROOT = BASE_DIR/'media'
+
 
 MEDIA_URL = 'media/'
+MEDIA_ROOT = "/var/www/api.fakejson/media"
 
 STATIC_URL = 'static/'
+STATIC_ROOT = "/var/www/api.fakejson/static"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 

@@ -7,11 +7,12 @@ __pycache__/
 local_settings.py
 media
 static
+config
 production.py
 fixture.json
 lookMe.txt
 jsontomodel.py
-
+utility
 *.py[cod]
 *$py.class
 # C extensions
